@@ -51,174 +51,181 @@ We used RegEx to extract the section numbers and times for each section (located
 
 We decided to go with an object oriented programming approach. Getting this code right was the bulk of the project. What we eventually ended up with was a Team Class and a Section Class that had two child classes – Section295 Class and Section270k Class – that inherited from the parent class. We used two child classes for Section because the 295 and 270K classes had different capacity requirements and that way we could set the class number, fail array, and section object variables as class variables for the two child classes. Below is a description of each class as well as the variables and functions contained within each class:
 
-Section Class
+**Section Class**
 
 Description: Class where each object is a course section
 
 Variables:
- self.name: string
+ self.name: _string_
   Column name from the sections dataframe that corresponds to the appropriate section
  self.capacity: integer
   Number of teams that the section can contain
- self.numStudents: integer
+ self.numStudents: _integer_
   Number of students currently assigned to the section
- self.team: list of Team objects
+ self.team: _list of Team objects_
   List of Team objects that have been assigned to the section
- self.worstPref: integer
+ self.worstPref: _integer_
   The worst pref number (1-5 with 5 being the worst) of all teams currently assigned to the section
- self.worstPrefTeam: Team object
+ self.worstPrefTeam: _Team object_
   The team that has the worst pref number of all teams currently assigned to the section
   Ties broken by being the most recent team added to the section
- self.currTime: string
+ self.currTime: _string_
   Day of the week and time that the section is at
 
 Functions:
  __init__(self, sectionname, capacity, currTeam)
   Parameters: 
-  sectionname: string
-  capacity: integer - Number of teams that Section can have
-  currTime: string - Day and time of the section
+  sectionname: _string_
+  capacity: _integer_ - Number of teams that Section can have
+  currTime: _string_ - Day and time of the section
   Initializes Section object with sectionname as sectionname, capacity as capacity, numStudents as 0, teams as [] (empty list), worstPref as None, and currTime as currTime.
  worstPrefCheck(self, team)
   Parameters:
-  team: Team object
+  team: _Team object_
   If worstPref hasn't been assigned yet, assign team as the team with the worst preference for the section. If it has been assigned but team has a worse preference than the current worst, reassign the worst preference team to team. Else, do nothing.
 assignWorstPref(self, pref, team)
   Parameters:
-  pref: integer - Current preference number of the team
-  team: Team object
+  pref: _integer_ - Current preference number of the team
+  team: _Team object_
   Assign pref as this section's worst preference number and team as this section's team with worst preference. Worst refers to the preference number being the largest.
  seekOtherWorst(self, sizeRequirement)
   Parameters:
-  sizeRequirement: integer
+  sizeRequirement: _integer_
   Find a team that has the same or worse preference than the current team with a team size bigger than the current team (sizeRequirement). If found, make that team the new worst team and preference for this section.
  replacingWorstPref(self, newTeam)
   Parameters:
-  newTeam: Team object
+  newTeam: _Team object_
   Update the worstPref for a section after replacing a team. If the new team has a pref of 5, make that the new worstPref. Else, iterate through all teams to find the most recent team added that has the worstPref.
  placeOldTeam(self, oldTeam)
   Parameters:
-  oldTeam: Team object
+  oldTeam: _Team object_
   If a team has been replaced, try to place the team in their next pref. If the team was already on their 5th pref, add them to the failed allocation list.
  replace(self, oldTeam, newTeam)
   Parameters:
-  oldTeam: Team object
-  newTeam: Team object
+  oldTeam: _Team object_
+  newTeam: _Team object_
   Replace a team (oldTeam) in the section that has a worse pref with newTeam, then run place on oldTeam and assign newTeam.
 
-Section 295 Class
+**Section 295 Class**
+
 Description: Subclass of Section where each object is a 295 course section
+
 Variables:
-self.classNumber: string
+self.classNumber: _string_
 Class section number
-self.fail_array: array of Team objects
+self.fail_array: _array of Team objects_
 Array of team objects that were not assigned to any 295 class section 
-self.section_objects: array of Section objects
+self.section_objects: _array of Section objects_
 Array of all Section295 objects 
-cap: integer
+cap: _integer_
 Number of teams each section can have
+
 Functions:
 __init__(self, sectionname, currTime)
 Parameters:
-Sectionname: string
-currTime: string - Day and time of the section
+Sectionname: _string_
+currTime: _string_ - Day and time of the section
 Initializes object with classNumber as ‘295’, faily_array as fail_allocation_295, section_objects as section_295_objects, and cap as 9
 super.__init__(sectionname, cap, currTime)
 Parameters
-sectionname: string
-cap: integer
-currTime: string - Day and time of the section
+sectionname: _string_
+cap: _integer_
+currTime: _string_ - Day and time of the section
 Sets object as child object of Section class with sectionname as sectionname, capacity as 9, and currTime as currTime
 assign(self, team)
 Parameters:
-team: Team object
+team: _Team object_
 Assign team to this section and update instance variables accordingly.
 place(self, team)
 Parameters:
-team: Team object
+team: _Team object_
 Check if team can be placed in this section. If it can, assign it to this section and update variables accordingly. If on team’s 5th preference, add team to the fail allocation list. If preference is less than 5, move on to team’s next preference section.
 
 Section 270k Class
 Description: Subclass of Section where each object is a 270k course section
 Variables:
-self.classNumber: string
+self.classNumber: _string_
 Class section number
-self.fail_array: array of Team objects
+self.fail_array: _array of Team objects_
 Array of team objects that were not assigned to any 270K class section 
-self.section_objects: array of Section objects
+self.section_objects: _array of Section objects_
 Array of all Section270k objects
 self.teamObjectsFor295: 
 List of assigned Section 295 objects so that they can be checked for time conflicts
-cap: integer
+cap: _integer_
 Number of teams each section can have
+
 Functions:
 __init__(self, sectionname, currTime)
 Parameters:
-sectionname: string
-currTime: string - Day and time of the section
+sectionname: _string_
+currTime: _string_ - Day and time of the section
 Initializes object with classNumber as ‘270k’, faily_array as fail_allocation_270k, section_objects as section_270k_objects, teamObjectsFor295 as teams_for_295, and cap as 9 
 super.__init__(sectionname, 2, currTime)
 Parameters:
-sectionname: string
-cap: integer
-currTime: string - Day and time of the section
+sectionname: _string_
+cap: _integer_
+currTime: _string_ - Day and time of the section
 Sets object as child object of Section class with sectionname as sectionname, capacity as 2, and currTime as currTime
 assign(self, team)
 Parameters:
-team: Team object
+team: _Team object_
 Assign team to this section and update instance variables accordingly.
 timeConflictCheck(self, team)
 Parameters:
-team: Team object
+team: _Team object_
 Returns True if the current section has a time conflict with the given team's 295 assigned section. Returns False if there is no conflict.
 place(self, team)
 Parameters:
-team: Team object
+team: _Team object_
 Check if team can be placed in this section. If it can, assign it to this section and update variables accordingly. If on team’s 5th preference, add team to the fail allocation list. If preference is less than 5, move on to team’s next preference section.
 
-Team Class
+**Team Class**
+
 Description: Class where each object is a team in the Masters of Engineering program
+
 Variables:
-self.teamid: string
+self.teamid: _string_
 Teamid as listed in the teamid column of the sections dataframe
-self.studentid: string
+self.studentid: _string_
 Studentid of the team member that filled out the Google form for their team as listed in the sections dataframe
-self.size: int
+self.size: _int_
 Number of students on the team
-self.teamindex: string
+self.teamindex: _string_
 Index of the row in the sections dataframe that contains this team
-self.currPref: integer
+self.currPref: _integer_
 Current section preference of the team (1-5 starting with 1)
-self.currSection: integer
+self.currSection: _integer_
 Current section that corresponds to the currPref number which is being checked to see if the team can be assigned to
-self.preferences: list of integers
+self.preferences: _list of integers_
 List of integers where the index corresponds to preference number and the integer itself corresponds to the column index of a section
-self.currentTime: string
+self.currentTime: _string_
 Current day of the week and time that the assigned section is at
+
 Functions:
 __init__(self, teamid, studentid, size, teamindex)
 Parameters:
-teamid: string
-studentid: string
-size: integer
-teamindex: integer
+teamid: _string_
+studentid: _string_
+size: _integer_
+teamindex: _integer_
 Initializes object with instance variables currPref as 1 and currSection, preferences, and currentTime as “None”
 createPreferences(self, df)
 Parameters:
-df: Pandas dataframe
+df: _Pandas dataframe_
 Create an ordered array of 5 numbers that are column indices for corresponding section preferences in df.
 addPref(self)
 Increases team.currPref by 1 to indicate that we have moved to the teams' next best preference choice.
 moveToNextSection(self, section_objects, classNumber, fail_array)
 Parameters:
-section_objects: array of Section objects
-classNumber: string
-fail_array: array of Team objects
+section_objects: _array of Section objects_
+classNumber: _string_
+fail_array: _array of Team objects_
 Try placing team (self) in their next preferred section.
 failed(self, failed_during, failed_array)
 Parameters:
-failed_during: string
-*NOTE: can get rid of this parameter, was previously used in print statement that was removed
+failed_during: _string_
+***NOTE**: can get rid of this parameter, was previously used in print statement that was removed
 failed_array: array of Team objects
 Adds team (self) to appropriate section fail array
 
