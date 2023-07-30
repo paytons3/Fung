@@ -1,4 +1,4 @@
-# Fung
+# Fung Institute MEng
 
 # **Masters of Engineering Section Matching Project**
 By John Jun and Payton Steiner
@@ -52,56 +52,59 @@ We used RegEx to extract the section numbers and times for each section (located
 We decided to go with an object oriented programming approach. Getting this code right was the bulk of the project. What we eventually ended up with was a Team Class and a Section Class that had two child classes – Section295 Class and Section270k Class – that inherited from the parent class. We used two child classes for Section because the 295 and 270K classes had different capacity requirements and that way we could set the class number, fail array, and section object variables as class variables for the two child classes. Below is a description of each class as well as the variables and functions contained within each class:
 
 Section Class
+
 Description: Class where each object is a course section
+
 Variables:
-self.name: string
-Column name from the sections dataframe that corresponds to the appropriate section
-self.capacity: integer
-Number of teams that the section can contain
-self.numStudents: integer
-Number of students currently assigned to the section
-self.team: list of Team objects
-List of Team objects that have been assigned to the section
-self.worstPref: integer
-The worst pref number (1-5 with 5 being the worst) of all teams currently assigned to the section
-self.worstPrefTeam: Team object
-The team that has the worst pref number of all teams currently assigned to the section
-Ties broken by being the most recent team added to the section
-self.currTime: string
-Day of the week and time that the section is at
+ self.name: string
+  Column name from the sections dataframe that corresponds to the appropriate section
+ self.capacity: integer
+  Number of teams that the section can contain
+ self.numStudents: integer
+  Number of students currently assigned to the section
+ self.team: list of Team objects
+  List of Team objects that have been assigned to the section
+ self.worstPref: integer
+  The worst pref number (1-5 with 5 being the worst) of all teams currently assigned to the section
+ self.worstPrefTeam: Team object
+  The team that has the worst pref number of all teams currently assigned to the section
+  Ties broken by being the most recent team added to the section
+ self.currTime: string
+  Day of the week and time that the section is at
+
 Functions:
-__init__(self, sectionname, capacity, currTeam)
-Parameters: 
-sectionname: string
-capacity: integer - Number of teams that Section can have
-currTime: string - Day and time of the section
-Initializes Section object with sectionname as sectionname, capacity as capacity, numStudents as 0, teams as [] (empty list), worstPref as None, and currTime as currTime.
-worstPrefCheck(self, team)
-Parameters:
-team: Team object
-If worstPref hasn't been assigned yet, assign team as the team with the worst preference for the section. If it has been assigned but team has a worse preference than the current worst, reassign the worst preference team to team. Else, do nothing.
+ __init__(self, sectionname, capacity, currTeam)
+  Parameters: 
+  sectionname: string
+  capacity: integer - Number of teams that Section can have
+  currTime: string - Day and time of the section
+  Initializes Section object with sectionname as sectionname, capacity as capacity, numStudents as 0, teams as [] (empty list), worstPref as None, and currTime as currTime.
+ worstPrefCheck(self, team)
+  Parameters:
+  team: Team object
+  If worstPref hasn't been assigned yet, assign team as the team with the worst preference for the section. If it has been assigned but team has a worse preference than the current worst, reassign the worst preference team to team. Else, do nothing.
 assignWorstPref(self, pref, team)
-Parameters:
-pref: integer - Current preference number of the team
-team: Team object
-Assign pref as this section's worst preference number and team as this section's team with worst preference. Worst refers to the preference number being the largest.
-seekOtherWorst(self, sizeRequirement)
-Parameters:
-sizeRequirement: integer
-Find a team that has the same or worse preference than the current team with a team size bigger than the current team (sizeRequirement). If found, make that team the new worst team and preference for this section.
-replacingWorstPref(self, newTeam)
-Parameters:
-newTeam: Team object
-Update the worstPref for a section after replacing a team. If the new team has a pref of 5, make that the new worstPref. Else, iterate through all teams to find the most recent team added that has the worstPref.
-placeOldTeam(self, oldTeam)
-Parameters:
-oldTeam: Team object
-If a team has been replaced, try to place the team in their next pref. If the team was already on their 5th pref, add them to the failed allocation list.
-replace(self, oldTeam, newTeam)
-Parameters:
-oldTeam: Team object
-newTeam: Team object
-Replace a team (oldTeam) in the section that has a worse pref with newTeam, then run place on oldTeam and assign newTeam.
+  Parameters:
+  pref: integer - Current preference number of the team
+  team: Team object
+  Assign pref as this section's worst preference number and team as this section's team with worst preference. Worst refers to the preference number being the largest.
+ seekOtherWorst(self, sizeRequirement)
+  Parameters:
+  sizeRequirement: integer
+  Find a team that has the same or worse preference than the current team with a team size bigger than the current team (sizeRequirement). If found, make that team the new worst team and preference for this section.
+ replacingWorstPref(self, newTeam)
+  Parameters:
+  newTeam: Team object
+  Update the worstPref for a section after replacing a team. If the new team has a pref of 5, make that the new worstPref. Else, iterate through all teams to find the most recent team added that has the worstPref.
+ placeOldTeam(self, oldTeam)
+  Parameters:
+  oldTeam: Team object
+  If a team has been replaced, try to place the team in their next pref. If the team was already on their 5th pref, add them to the failed allocation list.
+ replace(self, oldTeam, newTeam)
+  Parameters:
+  oldTeam: Team object
+  newTeam: Team object
+  Replace a team (oldTeam) in the section that has a worse pref with newTeam, then run place on oldTeam and assign newTeam.
 
 Section 295 Class
 Description: Subclass of Section where each object is a 295 course section
