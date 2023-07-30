@@ -27,7 +27,7 @@ As you can see from these notes, it was known that there were not enough section
 
 When first given the premise of the project, John found this paper on a similar student allocation problem. We used ideas and pseudocode from the paper to inspire our brainstorming process. Below is a screenshot from the paper of the general outline we started with: <br />
 
-Some first notes we made on this pseudocode versus what we were doing were: <br />
+Some first notes we made on this pseudocode versus what we were doing were:
 * We don't have lecturer preferences so will have to randomize choice of which teams get placement if there are ties. <br />
 * If we are randomizing tie breaks, we won't have to remove students from sections. <br />
 * Some sections may have a cap on number of teams rather than number of students <br />
@@ -38,14 +38,14 @@ Some first notes we made on this pseudocode versus what we were doing were: <br 
 
 ### Section III.i – Data preparation
 
-We first started by cleaning and editing a copy of the data. The data we used was in the form of team responses to a google form contained in this excel sheet. The process of preparing the data was as follows: <br />
-* Manually removed test responses we had in the excel sheet. <br />  
-* Imported the excel sheet as a Pandas dataframe. <br />
-* Set team id as the index of the dataframe. <br />
-* Split the dataframe into 2 separate dataframes: one with information in regards to the 295 sections and one in regards to the 270K sections. <br />
+We first started by cleaning and editing a copy of the data. The data we used was in the form of team responses to a google form contained in this excel sheet. The process of preparing the data was as follows:
+* Manually removed test responses we had in the excel sheet. 
+* Imported the excel sheet as a Pandas dataframe.
+* Set team id as the index of the dataframe.
+* Split the dataframe into 2 separate dataframes: one with information in regards to the 295 sections and one in regards to the 270K sections.
 * ***NOTE**: had to remember that the last two columns in the excel sheet were the N/A options for section preferences. <br />
-We used RegEx to extract the section numbers and times for each section (located in the Section Matching section of the Kaggle notebook). <br />
-* ***NOTE**: In future iterations of this project, it would be helpful for the Excel spreadsheets column names to have short and simple names, as this would make data cleaning easier. The Excel spreadsheet column names in our case were many sentences long, so doing RegEx to extract the title was difficult and time consuming. <br />
+We used RegEx to extract the section numbers and times for each section (located in the Section Matching section of the Kaggle notebook). 
+* ***NOTE**: In future iterations of this project, it would be helpful for the Excel spreadsheets column names to have short and simple names, as this would make data cleaning easier. The Excel spreadsheet column names in our case were many sentences long, so doing RegEx to extract the title was difficult and time consuming.
 
 ### Section III.ii – Creating classes
 
