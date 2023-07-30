@@ -55,9 +55,9 @@ We decided to go with an object oriented programming approach. Getting this code
 
 Description: Class where each object is a course section
 
-Variables:
- self.name: _string_
-  Column name from the sections dataframe that corresponds to the appropriate section
+Variables: <br />
+ self.name: _string_ <br />
+  Column name from the sections dataframe that corresponds to the appropriate section <br />
  self.capacity: integer
   Number of teams that the section can contain
  self.numStudents: _integer_
