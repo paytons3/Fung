@@ -56,55 +56,55 @@ We decided to go with an object oriented programming approach. Getting this code
 Description: Class where each object is a course section
 
 Variables: <br />
- * self.name: _string_ <br />
-  Column name from the sections dataframe that corresponds to the appropriate section. <br />
- * self.capacity: integer <br />
-  Number of teams that the section can contain. <br />
+* self.name: _string_ <br />
+  * Column name from the sections dataframe that corresponds to the appropriate section. <br />
+* self.capacity: integer <br />
+  * Number of teams that the section can contain. <br />
 * self.numStudents: _integer_ <br />
-  Number of students currently assigned to the section. <br />
- self.team: _list of Team objects_ <br />
-  List of Team objects that have been assigned to the section. <br />
- self.worstPref: _integer_ <br />
-  The worst pref number (1-5 with 5 being the worst) of all teams currently assigned to the section. <br />
- self.worstPrefTeam: _Team object_ <br />
-  The team that has the worst pref number of all teams currently assigned to the section. <br />
-  Ties broken by being the most recent team added to the section. <br />
- self.currTime: _string_ <br />
-  Day of the week and time that the section is at. <br />
+  * Number of students currently assigned to the section. <br />
+* self.team: _list of Team objects_ <br />
+  * List of Team objects that have been assigned to the section. <br />
+* self.worstPref: _integer_ <br />
+  * The worst pref number (1-5 with 5 being the worst) of all teams currently assigned to the section. <br />
+* self.worstPrefTeam: _Team object_ <br />
+  * The team that has the worst pref number of all teams currently assigned to the section. <br />
+  * Ties broken by being the most recent team added to the section. <br />
+* self.currTime: _string_ <br />
+  * Day of the week and time that the section is at. <br />
 
 Functions: <br />
- __init__(self, sectionname, capacity, currTeam) <br />
-  Parameters: <br />
-  sectionname: _string_ <br />
-  capacity: _integer_ - Number of teams that Section can have <br />
-  currTime: _string_ - Day and time of the section <br />
-  Initializes Section object with sectionname as sectionname, capacity as capacity, numStudents as 0, teams as [] (empty list), worstPref as None, and currTime as currTime. <br />
- worstPrefCheck(self, team) <br />
-  Parameters: <br />
-  team: _Team object_ <br />
-  If worstPref hasn't been assigned yet, assign team as the team with the worst preference for the section. If it has been assigned but team has a worse preference than the current worst, reassign the worst preference team to team. Else, do nothing. <br />
-assignWorstPref(self, pref, team) <br />
-  Parameters: <br />
-  pref: _integer_ - Current preference number of the team <br />
-  team: _Team object_ <br />
-  Assign pref as this section's worst preference number and team as this section's team with worst preference. Worst refers to the preference number being the largest. <br />
- seekOtherWorst(self, sizeRequirement) <br />
-  Parameters: <br />
-  sizeRequirement: _integer_ <br />
-  Find a team that has the same or worse preference than the current team with a team size bigger than the current team (sizeRequirement). If found, make that team the new worst team and preference for this section. <br />
- replacingWorstPref(self, newTeam) <br />
-  Parameters: <br />
-  newTeam: _Team object_ <br />
-  Update the worstPref for a section after replacing a team. If the new team has a pref of 5, make that the new worstPref. Else, iterate through all teams to find the most recent team added that has the worstPref. <br />
- placeOldTeam(self, oldTeam) <br />
-  Parameters: <br />
-  oldTeam: _Team object_ <br />
-  If a team has been replaced, try to place the team in their next pref. If the team was already on their 5th pref, add them to the failed allocation list. <br />
- replace(self, oldTeam, newTeam) <br />
-  Parameters: <br />
-  oldTeam: _Team object_ <br />
-  newTeam: _Team object_ <br />
-  Replace a team (oldTeam) in the section that has a worse pref with newTeam, then run place on oldTeam and assign newTeam. <br />
+* __init__(self, sectionname, capacity, currTeam) <br />
+  * Parameters: <br />
+    * sectionname: _string_ <br />
+    * capacity: _integer_ - Number of teams that Section can have <br />
+    * currTime: _string_ - Day and time of the section <br />
+  * Initializes Section object with sectionname as sectionname, capacity as capacity, numStudents as 0, teams as [] (empty list), worstPref as None, and currTime as currTime. <br />
+* worstPrefCheck(self, team) <br />
+  * Parameters: <br />
+    * team: _Team object_ <br />
+  * If worstPref hasn't been assigned yet, assign team as the team with the worst preference for the section. If it has been assigned but team has a worse preference than the current worst, reassign the worst preference team to team. Else, do nothing. <br />
+* assignWorstPref(self, pref, team) <br />
+  * Parameters: <br />
+    * pref: _integer_ - Current preference number of the team <br />
+    * team: _Team object_ <br />
+  * Assign pref as this section's worst preference number and team as this section's team with worst preference. Worst refers to the preference number being the largest. <br />
+* seekOtherWorst(self, sizeRequirement) <br />
+  * Parameters: <br />
+    * sizeRequirement: _integer_ <br />
+  * Find a team that has the same or worse preference than the current team with a team size bigger than the current team (sizeRequirement). If found, make that team the new worst team and preference for this section. <br />
+* replacingWorstPref(self, newTeam) <br />
+  * Parameters: <br />
+    * newTeam: _Team object_ <br />
+  * Update the worstPref for a section after replacing a team. If the new team has a pref of 5, make that the new worstPref. Else, iterate through all teams to find the most recent team added that has the worstPref. <br />
+* placeOldTeam(self, oldTeam) <br />
+  * Parameters: <br />
+    * oldTeam: _Team object_ <br />
+  * If a team has been replaced, try to place the team in their next pref. If the team was already on their 5th pref, add them to the failed allocation list. <br />
+* replace(self, oldTeam, newTeam) <br />
+  * Parameters: <br />
+    * oldTeam: _Team object_ <br />
+    * newTeam: _Team object_ <br />
+  * Replace a team (oldTeam) in the section that has a worse pref with newTeam, then run place on oldTeam and assign newTeam. <br />
 
 **Section 295 Class**
 
