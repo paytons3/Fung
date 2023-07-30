@@ -15,23 +15,23 @@ The goal of this project was to match 115 teams of 423 students total to section
 * Ideally there would be no more than 8 teams in one section <br />
 
 **270K Sections Notes** <br />
-Currently 56 30-min choices with 8 sessions each <br />
-2 teams share a slot as only attend 4x <br />
-Current total number of 112 sections (56x2) short 3 sections for 115 team sessions <br />
-Felicia working on scheduling 4 more to bring total to 116 <br />
+* Currently 56 30-min choices with 8 sessions each <br />
+* 2 teams share a slot as only attend 4x <br />
+* Current total number of 112 sections (56x2) short 3 sections for 115 team sessions <br />
+* Felicia working on scheduling 4 more to bring total to 116 <br />
 
 As you can see from these notes, it was known that there were not enough sections for every team to be assigned so there was guaranteed manual section matching after the algorithm was run. We used Kaggle to work collaboratively on this project. This notebook contains the final code and results of the project.
 
 
 ## **Section II: Brainstorming & Research**
 
-When first given the premise of the project, John found this paper on a similar student allocation problem. We used ideas and pseudocode from the paper to inspire our brainstorming process. Below is a screenshot from the paper of the general outline we started with:
- 
+When first given the premise of the project, John found this paper on a similar student allocation problem. We used ideas and pseudocode from the paper to inspire our brainstorming process. Below is a screenshot from the paper of the general outline we started with: <br />
+
 Some first notes we made on this pseudocode versus what we were doing were: <br />
-We don't have lecturer preferences so will have to randomize choice of which teams get placement if there are ties. <br />
-If we are randomizing tie breaks, we won't have to remove students from sections. <br />
-Some sections may have a cap on number of teams rather than number of students <br />
-Google form allows groups to submit again if they want to change their preferences. before running alg, we need to delete duplicates by only keeping the response with the most recent timestamp. <br />
+* We don't have lecturer preferences so will have to randomize choice of which teams get placement if there are ties. <br />
+* If we are randomizing tie breaks, we won't have to remove students from sections. <br />
+* Some sections may have a cap on number of teams rather than number of students <br />
+* Google form allows groups to submit again if they want to change their preferences. before running alg, we need to delete duplicates by only keeping the response with the most recent timestamp. <br />
 
 
 ## **Section III: Coding the Algorithm**
@@ -39,13 +39,13 @@ Google form allows groups to submit again if they want to change their preferenc
 ### Section III.i – Data preparation
 
 We first started by cleaning and editing a copy of the data. The data we used was in the form of team responses to a google form contained in this excel sheet. The process of preparing the data was as follows: <br />
-Manually removed test responses we had in the excel sheet. <br />  
-Imported the excel sheet as a Pandas dataframe. <br />
-Set team id as the index of the dataframe. <br />
-Split the dataframe into 2 separate dataframes: one with information in regards to the 295 sections and one in regards to the 270K sections. <br />
-***NOTE**: had to remember that the last two columns in the excel sheet were the N/A options for section preferences. <br />
+* Manually removed test responses we had in the excel sheet. <br />  
+* Imported the excel sheet as a Pandas dataframe. <br />
+* Set team id as the index of the dataframe. <br />
+* Split the dataframe into 2 separate dataframes: one with information in regards to the 295 sections and one in regards to the 270K sections. <br />
+* ***NOTE**: had to remember that the last two columns in the excel sheet were the N/A options for section preferences. <br />
 We used RegEx to extract the section numbers and times for each section (located in the Section Matching section of the Kaggle notebook). <br />
-***NOTE**: In future iterations of this project, it would be helpful for the Excel spreadsheets column names to have short and simple names, as this would make data cleaning easier. The Excel spreadsheet column names in our case were many sentences long, so doing RegEx to extract the title was difficult and time consuming. <br />
+* ***NOTE**: In future iterations of this project, it would be helpful for the Excel spreadsheets column names to have short and simple names, as this would make data cleaning easier. The Excel spreadsheet column names in our case were many sentences long, so doing RegEx to extract the title was difficult and time consuming. <br />
 
 ### Section III.ii – Creating classes
 
@@ -56,11 +56,11 @@ We decided to go with an object oriented programming approach. Getting this code
 Description: Class where each object is a course section
 
 Variables: <br />
- self.name: _string_ <br />
-  Column name from the sections dataframe that corresponds to the appropriate section. <br />
- self.capacity: integer <br />
-  Number of teams that the section can contain. <br />
- self.numStudents: _integer_ <br />
+ * self.name: _string_ <br />
+  ** Column name from the sections dataframe that corresponds to the appropriate section. <br />
+ * self.capacity: integer <br />
+  ** Number of teams that the section can contain. <br />
+* self.numStudents: _integer_ <br />
   Number of students currently assigned to the section. <br />
  self.team: _list of Team objects_ <br />
   List of Team objects that have been assigned to the section. <br />
