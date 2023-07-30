@@ -9,10 +9,10 @@ By John Jun and Payton Steiner
 The goal of this project was to match 115 teams of 423 students total to sections for project classes 295 and 270K in Spring 2023 under the Masters of Engineering Program. It was proposed that we do this by coding a section matching algorithm where we could run in all the teams and end up with assigned classes for them. Numbers and capacities changed as the project went on, but these were the final numbers given before we completed the project: <br />
 
 **295 Sections Notes** <br />
-14 1-hour choices <br />
-Total number of sections that can seat 30+ students in Mudd 100 = 11 (sections: 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15); @Felicia Rabang when you get a moment can you update the rooms on spreadsheet, i.e, no more Mudd 103, or give me edit access--thanks!:) <br />
-Total number of sections that can seat up to 30 students in Shires 311 = 3 (sections: 8, 9, 16) <br />
-Ideally there would be no more than 8 teams in one section <br />
+* 14 1-hour choices <br />
+* Total number of sections that can seat 30+ students in Mudd 100 = 11 (sections: 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15); @Felicia Rabang when you get a moment can you update the rooms on spreadsheet, i.e, no more Mudd 103, or give me edit access--thanks!:) <br />
+* Total number of sections that can seat up to 30 students in Shires 311 = 3 (sections: 8, 9, 16) <br />
+* Ideally there would be no more than 8 teams in one section <br />
 
 **270K Sections Notes** <br />
 Currently 56 30-min choices with 8 sessions each <br />
