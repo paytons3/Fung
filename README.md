@@ -57,9 +57,9 @@ Description: Class where each object is a course section
 
 Variables: <br />
  * self.name: _string_ <br />
-  ** Column name from the sections dataframe that corresponds to the appropriate section. <br />
+  Column name from the sections dataframe that corresponds to the appropriate section. <br />
  * self.capacity: integer <br />
-  ** Number of teams that the section can contain. <br />
+  Number of teams that the section can contain. <br />
 * self.numStudents: _integer_ <br />
   Number of students currently assigned to the section. <br />
  self.team: _list of Team objects_ <br />
