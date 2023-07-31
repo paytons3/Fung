@@ -112,34 +112,34 @@ Description: Subclass of Section where each object is a 295 course section
 
 Variables:
 * self.classNumber: _string_
- * Class section number.
+  * Class section number.
 * self.fail_array: _array of Team objects_ 
- * Array of team objects that were not assigned to any 295 class section.
+  * Array of team objects that were not assigned to any 295 class section.
 * self.section_objects: _array of Section objects_
- * Array of all Section295 objects.
+  * Array of all Section295 objects.
 * cap: _integer_ 
- * Number of teams each section can have.
+  * Number of teams each section can have.
 
 Functions: 
 * __init__(self, sectionname, currTime)
- * Parameters: 
-  * Sectionname: _string_ 
-  * currTime: _string_ - Day and time of the section
- * Initializes object with classNumber as ‘295’, faily_array as fail_allocation_295, section_objects as section_295_objects, and cap as 9. 
+  * Parameters: 
+    * Sectionname: _string_ 
+    * currTime: _string_ - Day and time of the section
+  * Initializes object with classNumber as ‘295’, faily_array as fail_allocation_295, section_objects as section_295_objects, and cap as 9. 
 * super.__init__(sectionname, cap, currTime) 
- * Parameters 
-  * sectionname: _string_ 
-  * cap: _integer_
-  * currTime: _string_ - Day and time of the section <br />
- * Sets object as child object of Section class with sectionname as sectionname, capacity as 9, and currTime as currTime.
+  * Parameters 
+    * sectionname: _string_ 
+    * cap: _integer_
+    * currTime: _string_ - Day and time of the section <br />
+  * Sets object as child object of Section class with sectionname as sectionname, capacity as 9, and currTime as currTime.
 * assign(self, team)
- * Parameters: 
-  * team: _Team object_
- * Assign team to this section and update instance variables accordingly.
+  * Parameters: 
+    * team: _Team object_
+  * Assign team to this section and update instance variables accordingly.
 * place(self, team) 
- * Parameters: 
-  * team: _Team object_ 
- * Check if team can be placed in this section. If it can, assign it to this section and update variables accordingly. If on team’s 5th preference, add team to the fail allocation list. If preference is less than 5, move on to team’s next preference section. 
+  * Parameters: 
+    * team: _Team object_ 
+  * Check if team can be placed in this section. If it can, assign it to this section and update variables accordingly. If on team’s 5th preference, add team to the fail allocation list. If preference is less than 5, move on to team’s next preference section. 
 
 **Section 270k Class**
 
@@ -147,40 +147,40 @@ Description: Subclass of Section where each object is a 270k course section
 
 Variables:
 * self.classNumber: _string_ 
- * Class section number.
+  * Class section number.
 * self.fail_array: _array of Team objects_ 
- * Array of team objects that were not assigned to any 270K class section.
+  * Array of team objects that were not assigned to any 270K class section.
 * self.section_objects: _array of Section objects_ 
- * Array of all Section270k objects 
+  * Array of all Section270k objects 
 * self.teamObjectsFor295:
- * List of assigned Section 295 objects so that they can be checked for time conflicts.
+  * List of assigned Section 295 objects so that they can be checked for time conflicts.
 * cap: _integer_ 
- * Number of teams each section can have.
+  * Number of teams each section can have.
 
 Functions: 
 * __init__(self, sectionname, currTime)
- * Parameters:
-  * sectionname: _string_ 
-  * currTime: _string_ - Day and time of the section
- * Initializes object with classNumber as ‘270k’, faily_array as fail_allocation_270k, section_objects as section_270k_objects, teamObjectsFor295 as teams_for_295, and cap as 9.
+  * Parameters:
+    * sectionname: _string_ 
+    * currTime: _string_ - Day and time of the section
+  * Initializes object with classNumber as ‘270k’, faily_array as fail_allocation_270k, section_objects as section_270k_objects, teamObjectsFor295 as teams_for_295, and cap as 9.
 * super.__init__(sectionname, 2, currTime)
- * Parameters:
-  * sectionname: _string_ 
-  * cap: _integer_ 
-  * currTime: _string_ - Day and time of the section 
- * Sets object as child object of Section class with sectionname as sectionname, capacity as 2, and currTime as currTime.
+  * Parameters:
+    * sectionname: _string_ 
+    * cap: _integer_ 
+    * currTime: _string_ - Day and time of the section 
+  * Sets object as child object of Section class with sectionname as sectionname, capacity as 2, and currTime as currTime.
 * assign(self, team) 
- * Parameters:
-  * team: _Team object_
- * Assign team to this section and update instance variables accordingly.
+  * Parameters:
+    * team: _Team object_
+  * Assign team to this section and update instance variables accordingly.
 * timeConflictCheck(self, team)
- * Parameters: 
-  * team: _Team object_ 
- * Returns True if the current section has a time conflict with the given team's 295 assigned section. Returns False if there is no conflict.
+  * Parameters: 
+    * team: _Team object_ 
+  * Returns True if the current section has a time conflict with the given team's 295 assigned section. Returns False if there is no conflict.
 * place(self, team)
- * Parameters: 
-  * team: _Team object_ 
- * Check if team can be placed in this section. If it can, assign it to this section and update variables accordingly. If on team’s 5th preference, add team to the fail allocation list. If preference is less than 5, move on to team’s next preference section.
+  * Parameters: 
+    * team: _Team object_ 
+  * Check if team can be placed in this section. If it can, assign it to this section and update variables accordingly. If on team’s 5th preference, add team to the fail allocation list. If preference is less than 5, move on to team’s next preference section.
 
 **Team Class**
 
@@ -188,48 +188,48 @@ Description: Class where each object is a team in the Masters of Engineering pro
 
 Variables:
 * self.teamid: _string_
- * Teamid as listed in the teamid column of the sections dataframe.
+  * Teamid as listed in the teamid column of the sections dataframe.
 * self.studentid: _string_
- * Studentid of the team member that filled out the Google form for their team as listed in the sections dataframe. 
+  * Studentid of the team member that filled out the Google form for their team as listed in the sections dataframe. 
 * self.size: _int_ 
- * Number of students on the team. 
+  * Number of students on the team. 
 * self.teamindex: _string_
- * Index of the row in the sections dataframe that contains this team.
+  * Index of the row in the sections dataframe that contains this team.
 * self.currPref: _integer_ 
- * Current section preference of the team (1-5 starting with 1).
+  * Current section preference of the team (1-5 starting with 1).
 * self.currSection: _integer_ 
- * Current section that corresponds to the currPref number which is being checked to see if the team can be assigned to.
+  * Current section that corresponds to the currPref number which is being checked to see if the team can be assigned to.
 * self.preferences: _list of integers_ 
- * List of integers where the index corresponds to preference number and the integer itself corresponds to the column index of a section. 
+  * List of integers where the index corresponds to preference number and the integer itself corresponds to the column index of a section. 
 * self.currentTime: _string_ 
- * Current day of the week and time that the assigned section is at. 
+  * Current day of the week and time that the assigned section is at. 
 
 Functions: 
 * __init__(self, teamid, studentid, size, teamindex) 
- * Parameters: 
-  * teamid: _string_
-  * studentid: _string_ 
-  * size: _integer_ 
-  * teamindex: _integer_
- * Initializes object with instance variables currPref as 1 and currSection, preferences, and currentTime as “None”.
+  * Parameters: 
+    * teamid: _string_
+    * studentid: _string_ 
+    * size: _integer_ 
+    * teamindex: _integer_
+  * Initializes object with instance variables currPref as 1 and currSection, preferences, and currentTime as “None”.
 * createPreferences(self, df)
- * Parameters: 
-  * df: _Pandas dataframe_ 
- * Create an ordered array of 5 numbers that are column indices for corresponding section preferences in df.
+  * Parameters: 
+    * df: _Pandas dataframe_ 
+  * Create an ordered array of 5 numbers that are column indices for corresponding section preferences in df.
 * addPref(self) 
- * Increases team.currPref by 1 to indicate that we have moved to the teams' next best preference choice. 
+  * Increases team.currPref by 1 to indicate that we have moved to the teams' next best preference choice. 
 * moveToNextSection(self, section_objects, classNumber, fail_array) 
- * Parameters: 
-  * section_objects: _array of Section objects_
-  * classNumber: _string_
-  * fail_array: _array of Team objects_ 
- * Try placing team (self) in their next preferred section.
+  * Parameters: 
+    * section_objects: _array of Section objects_
+    * classNumber: _string_
+    * fail_array: _array of Team objects_ 
+  * Try placing team (self) in their next preferred section.
 * failed(self, failed_during, failed_array)
- * Parameters: 
-  * failed_during: _string_
-   * ***NOTE**: can get rid of this parameter, was previously used in print statement that was removed
-  * failed_array: array of Team objects
- * Adds team (self) to appropriate section fail array.
+  * Parameters: 
+    * failed_during: _string_
+      * ***NOTE**: can get rid of this parameter, was previously used in print statement that was removed
+    * failed_array: array of Team objects
+  * Adds team (self) to appropriate section fail array.
 
 
 ## **Section IV: Section Matching**
