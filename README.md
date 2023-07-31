@@ -1,6 +1,4 @@
-# Fung Institute MEng
-
-# **Masters of Engineering Section Matching Project**
+# Fung Institute Masters of Engineering Section Matching Project
 By John Jun and Payton Steiner
 
 
