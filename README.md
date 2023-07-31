@@ -25,9 +25,7 @@ As you can see from these notes, it was known that there were not enough section
 
 ## **Section II: Brainstorming & Research**
 
-When first given the premise of the project, John found this paper on a similar student allocation problem. We used ideas and pseudocode from the paper to inspire our brainstorming process. Below is a screenshot from the paper of the general outline we started with:
-
-
+When first given the premise of the project, John found a paper on a similar student allocation problem. We used ideas and pseudocode from the paper to inspire our brainstorming process. ([This](https://www.cs.cmu.edu/~dabraham/papers/aim04.pdf) is the link to the paper referenced.)
 
 Some first notes we made on this pseudocode versus what we were doing were:
 * We don't have lecturer preferences so will have to randomize choice of which teams get placement if there are ties.
