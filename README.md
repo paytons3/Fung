@@ -27,6 +27,8 @@ As you can see from these notes, it was known that there were not enough section
 
 When first given the premise of the project, John found this paper on a similar student allocation problem. We used ideas and pseudocode from the paper to inspire our brainstorming process. Below is a screenshot from the paper of the general outline we started with:
 
+
+
 Some first notes we made on this pseudocode versus what we were doing were:
 * We don't have lecturer preferences so will have to randomize choice of which teams get placement if there are ties.
 * If we are randomizing tie breaks, we won't have to remove students from sections.
@@ -277,8 +279,7 @@ With parts of this process being manual, and other parts being automated, there 
 
 ## **Links**
 
-Google Colab notebook <br />
-Input data (results from MEng preference survey that teams filled out) <br />
-Algorithm structure ideas and pseudocode <br />
-Google form responses from teams <br />
+[Google Colab notebook](https://colab.research.google.com/drive/1IjW0RdAJp-4tP8bG6YhmaB0aYn_9B_qo?authuser=1#scrollTo=azl9gfrCS_yb) <br />
+[Algorithm structure ideas and pseudocode](https://www.cs.cmu.edu/~dabraham/papers/aim04.pdf) <br />
+[Input data: Google form responses from teams](https://docs.google.com/spreadsheets/d/1mHUz5vffcjR6a_9w4dDLRMLor9nga1BHNyQRbX4lmns/edit?resourcekey=undefined#gid=1663346299) <br />
 
