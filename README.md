@@ -6,7 +6,7 @@ Section I: Project Introduction <br />
 Section II: Brainstorming & Research <br />
 Section III: Coding the Algorithm <br />
 * Section III.i – Data preparation
-* Section III.ii – Creating classes
+* Section III.ii – Creating classes <br />
 Section IV: Section Matching <br />
 Section V: Testing & Results <br />
 Section VI: Manual Editing <br />
