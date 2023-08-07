@@ -1,6 +1,21 @@
 # Fung Institute Masters of Engineering Section Matching Project
 By John Jun and Payton Steiner
 
+## Project Overview
+Section I: Project Introduction <br />
+Section II: Brainstorming & Research <br />
+Section III: Coding the Algorithm <br />
+* Section III.i – Data preparation
+* Section III.ii – Creating classes
+Section IV: Section Matching <br />
+Section V: Testing & Results <br />
+Section VI: Manual Editing <br />
+Section VII: Future Project Improvements <br />
+
+## References
+[Google Colab notebook](https://colab.research.google.com/drive/1IjW0RdAJp-4tP8bG6YhmaB0aYn_9B_qo?authuser=1#scrollTo=azl9gfrCS_yb) <br />
+[Algorithm structure ideas and pseudocode](https://www.cs.cmu.edu/~dabraham/papers/aim04.pdf) <br />
+[Input data: Google form responses from teams](https://docs.google.com/spreadsheets/d/1mHUz5vffcjR6a_9w4dDLRMLor9nga1BHNyQRbX4lmns/edit?resourcekey=undefined#gid=1663346299) <br />
 
 ## **Section I: Project Introduction**
 
@@ -264,18 +279,11 @@ This was because:
 * Many sections were incredibly popular, and many were very unpopular. What we ended up doing was if for example a team placed a popular section as their 1st choice and an unpopular section as their 4th choice, we manually swapped their choices. This way they would still get a top 5 preference, and give up the popular one. If we attempted to give everyone the popular choices, neither the popular or unpopular choices would have ended up being filled.
 
 
-## **Section VII: Improvements to be made**
+## **Section VII: Future Project Improvements**
 
 With parts of this process being manual, and other parts being automated, there are disconnects in the process that could be optimized in future iterations. These include:
 * Formatting the Excel spreadsheet to have shorter and easier to read columns.
 * Enforcing deciding on 5 preferences, except for when having extenuating circumstances. 
 * Trying to create more availability for popular time slots (such as adding additional lecture halls for the 11 am’s).
 * On the Google form, list certain sections as historically popular, and therefore harder to get into. This may incentivize some teams to play it safe and choose other sections.
-
-
-## **Links**
-
-[Google Colab notebook](https://colab.research.google.com/drive/1IjW0RdAJp-4tP8bG6YhmaB0aYn_9B_qo?authuser=1#scrollTo=azl9gfrCS_yb) <br />
-[Algorithm structure ideas and pseudocode](https://www.cs.cmu.edu/~dabraham/papers/aim04.pdf) <br />
-[Input data: Google form responses from teams](https://docs.google.com/spreadsheets/d/1mHUz5vffcjR6a_9w4dDLRMLor9nga1BHNyQRbX4lmns/edit?resourcekey=undefined#gid=1663346299) <br />
 
