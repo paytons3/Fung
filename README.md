@@ -1,4 +1,5 @@
-# Fung Institute Masters of Engineering Section Matching Project
+# The Coleman Fung Institute Masters of Engineering Section Matching Project for Spring 2023
+Created in Fall 2022 <br />
 By John Jun and Payton Steiner
 
 ## Project Overview
