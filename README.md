@@ -11,7 +11,7 @@ Section III: Coding the Algorithm <br />
 Section IV: Section Matching <br />
 Section V: Testing & Results <br />
 Section VI: Manual Editing <br />
-Section VII: Future Project Improvements <br />
+Section VII: Conclusions <br />
 
 ## References
 [Google Colab notebook](https://colab.research.google.com/drive/1IjW0RdAJp-4tP8bG6YhmaB0aYn_9B_qo?authuser=1#scrollTo=azl9gfrCS_yb) <br />
@@ -280,11 +280,15 @@ This was because:
 * Many sections were incredibly popular, and many were very unpopular. What we ended up doing was if for example a team placed a popular section as their 1st choice and an unpopular section as their 4th choice, we manually swapped their choices. This way they would still get a top 5 preference, and give up the popular one. If we attempted to give everyone the popular choices, neither the popular or unpopular choices would have ended up being filled.
 
 
-## **Section VII: Future Project Improvements**
+## **Section VII: Conclusions**
+This project was successful in matching teams of students in the UC Berkeley MEng program for Spring 2023 project courses. We hope that our end product will continue to be adapted and used for MEng course scheduling moving forward and that this documentation serves as a useful guide. 
 
-With parts of this process being manual, and other parts being automated, there are disconnects in the process that could be optimized in future iterations. These include:
+As this was the first attempt in automizing this course scheduling process, we learned a lot about the needs for this project. Perhaps the most important thing taken away was that this is a project where there will inevitably be unexpected changes that we must adapt to, such as the addition of new sections or the changing of teams. We did our best to create code that can handle changes for future iterations of this project specifically, such as a different max capacity for classes.  However, it should be noted that the code used in this project is very tailored towards this particular scheduling scenario. For those looking to use this project as guidance for their own course scheduling needs we hope that our general process will be helpful, but the code will need to be adapted for your speficic needs.
+
+With parts of this process being manual and other parts being automated, there are disconnects in the process that could be optimized in future iterations. For those taking on our specific project in the future, here are some notes of improvement that we have noted:
 * Formatting the Excel spreadsheet to have shorter and easier to read columns.
 * Enforcing deciding on 5 preferences, except for when having extenuating circumstances. 
 * Trying to create more availability for popular time slots (such as adding additional lecture halls for the 11 am’s).
 * On the Google form, list certain sections as historically popular, and therefore harder to get into. This may incentivize some teams to play it safe and choose other sections.
 
+We thank you for viewing our guide and wish you luck in your course scheduling endeavors!
